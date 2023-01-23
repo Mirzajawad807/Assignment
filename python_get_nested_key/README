@@ -1,0 +1,8 @@
+This function uses the split() method to separate the key string into a
+list of keys, and then uses a for loop to iterate through the list and
+access the corresponding value in the nested object. If any of the keys
+are not present in the object, the function returns None.
+
+You can also add some more validation to check whether the key passed is
+in the format of "key1/key2/key3" or not and also check whether the
+object passed is a dictionary or not.

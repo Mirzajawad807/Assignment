@@ -1,0 +1,27 @@
+This code will create a new file named instance\_metadata.csv in the
+current working directory, and write the headings "Instance ID",
+"Instance Type", "Launch Time", "Private IP", "Public IP" to it. Then it
+will iterate over all the instances returned by describe-instances
+command and writes the instance metadata to the file in tabular format.
+
+It's important to note that, in the above example, the json.loads()
+method is used to parse the JSON output of the subprocess.run() command
+and convert it into a Python dictionary, which allows for easy access to
+the instance metadata.
+
+Also, instance.get("PublicIpAddress", \"\") is used to check if the
+Public IP address is available, if not, it writes empty string to the
+file.
+
+It's important to note that the code above will overwrite any existing
+file with the same name, if you want to append the data to an existing
+file, you should use 'a' as the second argument when opening the file
+and will also have to add header row only once.
+
+You can also use boto3 library to get the metadata of all instances,
+which is a python SDK for AWS. With boto3, you can directly access the
+metadata of instances in pythonic way, with less amount of code.
+
+It's important to note that, you need to have the appropriate
+credentials and permissions in order to access the instance metadata
+using the AWS CLI or the boto3 library
